@@ -1,0 +1,1 @@
+arm-linux-gnueabi-gcc --static beauty.c -o beauty && adb push beauty /data/local/tmp/beauty
