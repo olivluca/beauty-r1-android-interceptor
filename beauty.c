@@ -10,6 +10,7 @@
 #include <stdbool.h>
 #include <sys/time.h>
 #include <sys/inotify.h>
+#include <signal.h>
 #include "keycodes.h"
 
 int button=0;
@@ -340,6 +341,8 @@ int main(int argc, char **argv)
   int fd;
   struct input_event ie;
     
+  signal(SIGCHLD, SIG_IGN); //avoid zombies
+
   while (true) {   
     fd=open_beauty();
     if (fd<0)
